@@ -10,7 +10,7 @@ with cte as
                   Sum(num_shares) OVER(partition BY t.symbol, exchange, trader ORDER BY t.date rows UNBOUNDED PRECEDING ) num_shares_cumulative,
                   Sum(cash) OVER(partition BY t.symbol, exchange, trader ORDER BY t.date rows UNBOUNDED PRECEDING ) cash_cumulative,
                   s.close
-              from {{ ref('trades') }} t
+              from {{ ref('trade') }} t
               inner join {{ ref('stg_stock_history') }} s on t.symbol = s.symbol and s.date = t.date
           )
           select 

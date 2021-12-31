@@ -16,7 +16,7 @@ select
             inner join {{ ref('watchlist') }} w on h.symbol = w.symbol and w.trader = 'all_authorized'
             where h.close <> 0 and year(date) between 2010 and 2019
          ) c
-         full outer join {{ ref('traders') }} t
+         full outer join {{ ref('trader') }} t
        union all
         {# --hold for all traders except Charles #}
          select
@@ -32,7 +32,7 @@ select
             inner join {{ ref('watchlist') }} w on h.symbol = w.symbol and w.trader = 'all_authorized'
             where h.close <> 0 and year(date) >= 2020
          ) c
-         full outer join {{ ref('traders') }} t
+         full outer join {{ ref('trader') }} t
        union all
           {# --for charles buy $100K in value for each ticker in Jan 2019 #}
           select
