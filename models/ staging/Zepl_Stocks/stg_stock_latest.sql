@@ -1,4 +1,8 @@
-{{ config(MATERIALIZED='table') }}
+{{ config(
+        materialized='table'
+        ) 
+}}
+
 with cte as
         (
           select *,

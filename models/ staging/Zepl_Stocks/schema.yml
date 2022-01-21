@@ -2,5 +2,12 @@ version: 2
 
 models:
   - name: stg_stock_history
+    description: "a staging model for the zepl_us_stocks_daily.stock_history raw table"
+    columns:
+      - name: date||symbol
+        description: The primary key of this table
+        tests:
+          - not_null
+          - unique
   - name: stg_stock_latest
   - name: stg_company_profile

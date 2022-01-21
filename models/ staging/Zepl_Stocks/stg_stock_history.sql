@@ -1,4 +1,8 @@
-{{ config(MATERIALIZED='incremental') }}
+{{ config(
+        materialized='table',
+        post_hook= "comment on column {{ this }}.close is 'closing price used for all transactions'"
+        ) 
+}}
 
 
 with cte as
