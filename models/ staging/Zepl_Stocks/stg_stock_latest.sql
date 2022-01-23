@@ -1,6 +1,8 @@
 {{ config(
-        materialized='table'
-        ) 
+        materialized='table',
+        post_hook= "
+          comment on table {{ this }} is 'latest available stock prices. We use latest date Starbucks (SBUX) is available'"
+        )         
 }}
 
 with cte as

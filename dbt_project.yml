@@ -34,3 +34,7 @@ models:
         materialized: table
     staging:
         materialized: table
+
+on-run-end:
+    - "comment on column trader.PM is 'Portfolio Manager (PM) manages traders'"
+

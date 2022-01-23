@@ -1,6 +1,7 @@
 {{ config(
         materialized='table',
         post_hook= "
+          comment on table {{ this }} is 'zepl_us_stocks_daily stock_history but with duplicates removed';
           comment on column {{ this }}.close is 'closing price used for all transactions';
           comment on column {{ this }}.adjclose is 'closing price after adjustments for all applicable splits and dividend distributions'"
         ) 

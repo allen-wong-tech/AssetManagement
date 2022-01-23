@@ -1,5 +1,7 @@
 {{ config(
-        materialized='table'
+        materialized='table',
+        post_hook= "
+          comment on table {{ this }} is 'Beta and Market Cap (mktcap) change daily but we will use these static numbers as a proxy for now'"
         ) 
 }}
 

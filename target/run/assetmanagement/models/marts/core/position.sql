@@ -1,9 +1,5 @@
 
-<<<<<<< HEAD
   create or replace  view analytics.dbt_awong.position 
-=======
-  create or replace  view analytics.dbt_achen.position 
->>>>>>> e3efb5f94c1dd747904eb220cc15e11d79383ac5
   
    as (
     
@@ -14,13 +10,8 @@ with cte as
                   Sum(num_shares) OVER(partition BY t.symbol, exchange, trader ORDER BY t.date rows UNBOUNDED PRECEDING ) num_shares_cumulative,
                   Sum(cash) OVER(partition BY t.symbol, exchange, trader ORDER BY t.date rows UNBOUNDED PRECEDING ) cash_cumulative,
                   s.close
-<<<<<<< HEAD
               from analytics.dbt_awong.trade t
               inner join analytics.dbt_awong.stg_stock_history s on t.symbol = s.symbol and s.date = t.date
-=======
-              from analytics.dbt_achen.trade t
-              inner join analytics.dbt_achen.stg_stock_history s on t.symbol = s.symbol and s.date = t.date
->>>>>>> e3efb5f94c1dd747904eb220cc15e11d79383ac5
           )
           select 
             *,
