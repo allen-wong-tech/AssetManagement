@@ -1,5 +1,10 @@
-{{ config(MATERIALIZED='incremental') }}
-
+{{ config(
+        materialized='table',
+        post_hook= "
+          comment on column {{ this }}.close is 'closing price used for all transactions';
+          comment on column {{ this }}.adjclose is 'closing price after adjustments for all applicable splits and dividend distributions'"
+        ) 
+}}
 
 with cte as
         (
