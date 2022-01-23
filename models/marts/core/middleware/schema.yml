@@ -1,6 +1,4 @@
 version: 2
 
 models:
-  - name: temp_trader
-  - name: temp_watchlist
   - name: share_now

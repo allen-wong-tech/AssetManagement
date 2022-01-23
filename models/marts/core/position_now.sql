@@ -1,6 +1,8 @@
 {{
   config(
     materialized = 'view',
+        post_hook= "
+          comment on view {{ this }} is 'Current position'"
     )
 }}
 select p.*, l.close, l.date,
