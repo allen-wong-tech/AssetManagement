@@ -1,17 +1,10 @@
 {{ config(
         materialized='table',
-<<<<<<< HEAD
         post_hook= "
           comment on column {{ this }}.close is 'closing price used for all transactions';
           comment on column {{ this }}.adjclose is 'closing price after adjustments for all applicable splits and dividend distributions'"
         ) 
 }}
-=======
-        post_hook= "comment on column {{ this }}.close is 'closing price used for all transactions'"
-        ) 
-}}
-
->>>>>>> e3efb5f94c1dd747904eb220cc15e11d79383ac5
 
 with cte as
         (
